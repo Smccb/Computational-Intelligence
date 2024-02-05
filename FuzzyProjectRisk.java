@@ -73,8 +73,12 @@ class FuzzyProjectRisk{
         // Start writing rules
         // RULE 1
         ruleBlock.addRule(Rule.parse("if (project_funding is adequate or project_staffing is small) then risk is low", engine));
+        
         // RULE 2
+        ruleBlock.addRule(Rule.parse("if (project_funding is marginal and project_staffing is large) then risk is normal", engine));
+
         // RULE 3
+        ruleBlock.addRule(Rule.parse("if (project_funding is inadequate) then risk is high", engine));
 
         engine.addRuleBlock(ruleBlock);
     }
